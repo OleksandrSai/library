@@ -1,0 +1,37 @@
+<section class="author">
+  <div class="author__blocks">
+    <div class="author__block1">
+      <button (click)="windowAdd()" mat-flat-button color="accent" class="author__new">Добавить нового
+        автора </button>
+
+
+      <ul class="author__title" >
+        <li>Автор <span></span></li>
+        <li>Книг в базе</li>
+        <li> Сортировка <select #selects (change)="sort(selects.value)">
+          <option value="no">Без фильтра</option>
+          <option value="books">По количеству книг</option>
+          <option value="author(A-Z)">Автор (А-Я)</option>
+          <option value="author(Z-A)">Автор (Я-А)</option>
+        </select></li>
+      </ul>
+
+      <ul class="author__body" *ngFor="let key of AllAuthor">
+        <li>{{key.lastName}} {{key.fisrtName | initials}} {{key.surname | initials}}</li>
+        <li>{{key.countBook}}</li>
+        <li class="author_B" (click)="authorEdit(key)" >Редактировать✏️</li>
+        <li class="author_L"(click)="authorEdit(key)">✏️</li>
+        <li class="author_B" (click)="authordelete(key.id)">Удалить🗑️</li>
+        <li class="author_L"(click)="authordelete(key.id)">🗑️</li>
+        <li class="author_B" (click)="authorDetails(key)">Детали📋</li>
+        <li class="author_L" (click)="authorDetails(key)">📋</li>
+      </ul>
+
+    </div>
+    <div class="author__block2">
+      <app-new-author (myUpd)="myDicription($event)" *ngIf="addUser"></app-new-author>
+      <app-detais-author  *ngIf="infoUser"></app-detais-author>
+      <app-edit-author (myUpd)="myDicription($event)" *ngIf="editUser"></app-edit-author>
+    </div>
+  </div>
+</section>

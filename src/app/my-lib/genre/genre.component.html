@@ -1,0 +1,29 @@
+<section class="genre">
+  <div class="genre__blocks">
+    <div class="genre__block1">
+      <button (click)="windowAdd()" mat-flat-button color="accent" class="genre__new">Добавить новый жанр</button>
+
+
+      <ul class="genre__title" >
+        <li>Жанр</li>
+        <li>Количетсво книг</li>
+
+      </ul>
+
+      <ul class="genre__body" *ngFor="let key of AllGenre">
+        <li>{{key.genre}}</li>
+        <li>{{key.countBooks}}</li>
+        <li class="genre_B"(click)="bookEdit(key)" >Редактировать✏️</li>
+        <li class="genre_L" (click)="bookEdit(key)">✏️</li>
+        <li class="genre_B"(click)="bookdelete(key.id)" >Удалить🗑️</li>
+        <li class="genre_L"(click)="bookdelete(key.id)" >🗑️</li>
+      </ul>
+
+    </div>
+    <div class="genre__block2">
+      <app-genre-add (updGenre)="myUpdateGenre($event)" *ngIf="addGenre"></app-genre-add>
+      <app-detais-author  *ngIf="infoGenre"></app-detais-author>
+      <app-genre-edit (updBook)="myUpdateGenre($event)" *ngIf="editGenre"></app-genre-edit>
+    </div>
+  </div>
+</section>

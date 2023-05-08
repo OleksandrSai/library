@@ -1,0 +1,96 @@
+@import "../../mixin/breakpoints";
+@import "../../mixin/vars";
+
+.author {
+  display: flex;
+  justify-content: center;
+  transition: all 5s;
+
+  .author__blocks {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include md-d {
+      flex-direction: column;
+    }
+
+    .author__block1 {
+      font-size: 16px;
+
+      .author__body {
+        padding: 0px;
+        display: flex;
+        list-style: none;
+
+        .author_B {
+          @include xl-d {
+            display: flex;
+          }
+
+          @include md-d {
+            display: none;
+          }
+        }
+
+        .author_L {
+          @include xl-d {
+            display: none;
+          }
+
+          @include md-d {
+            display: flex;
+
+          }
+        }
+
+        li {
+          display: flex;
+          cursor: pointer;
+          user-select: none;
+          margin-right: 40px;
+        }
+        li:nth-child(1){
+          width: 110px;
+        }
+
+        li:nth-child(8),li:nth-child(7) {
+          @include md-d {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      .author__title {
+        padding: 0px;
+        display: flex;
+        list-style: none;
+
+        li {
+          cursor: pointer;
+          user-select: none;
+          margin-right: 65px;
+          font-weight: bold;
+          @include md-d {
+            margin-right: 50px;
+          }
+        }
+
+        li:nth-child(3) {
+          margin-right: 0px;
+
+        }
+      }
+    }
+
+    .author__block2 {
+      margin-left: 50px;
+
+      @include md-d {
+        margin-left: 0px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

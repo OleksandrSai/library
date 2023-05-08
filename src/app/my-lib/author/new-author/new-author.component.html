@@ -1,0 +1,25 @@
+<div class="myLable">
+  <h2>Добавление нового автора</h2>
+</div>
+<form [formGroup]="addUserForm">
+
+  <mat-form-field class="example-full-width" color="accent">
+    <mat-label>Имя</mat-label>
+    <input matInput placeholder="Имя" value="" #firstname >
+  </mat-form-field>
+  <mat-form-field class="example-full-width" color="accent">
+    <mat-label>Фамилия</mat-label>
+    <input matInput placeformholder="Фамилия" value="" #lastname>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" color="accent">
+    <mat-label>Очество</mat-label>
+    <input matInput placeholder="Очество" value="" #surname>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" color="accent">
+    <mat-label>Дата рождения</mat-label>
+    <input matInput placeholder="Дата рождения" value="" #DateBirth>
+  </mat-form-field>
+  <button *ngIf="addUserForm.valid" mat-raised-button color="accent" (click)="Submit(firstname.value, lastname.value, surname.value, DateBirth.value)">Добавить</button>
+  <button *ngIf="addUserForm.invalid" mat-raised-button color="warn">Добавить</button>
+</form>
+

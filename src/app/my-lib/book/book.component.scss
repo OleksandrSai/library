@@ -1,0 +1,127 @@
+@import "../../mixin/breakpoints";
+@import "../../mixin/vars";
+
+.book {
+  display: flex;
+  justify-content: center;
+  transition: all 5s;
+
+  .book__blocks {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include md-d {
+      flex-direction: column;
+    }
+
+    .book__block1 {
+      font-size: 16px;
+      margin-left: 20px;
+
+      .block1__submenu{
+        display: flex;
+
+        .block1__submenu__serch{
+          margin-left: 25px;
+        }
+
+        input{
+
+          background-color: rgb(66, 61, 60);
+          border-radius: 5px 5px 0px 0px;
+          color: white;
+          width: 150px;
+          height: 30px;
+        }
+        input::placeholder{
+          color: white;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+
+
+      .book__body {
+        padding: 0px;
+        display: flex;
+        list-style: none;
+
+        .book_B {
+          @include xl-d {
+            display: flex;
+          }
+
+          @include md-d {
+            display: none;
+          }
+        }
+
+        .book_L {
+          @include xl-d {
+            display: none;
+          }
+
+          @include md-d {
+            display: flex;
+
+          }
+        }
+
+        li {
+          display: flex;
+          cursor: pointer;
+          user-select: none;
+          margin-right: 30px;
+          white-space: pre-line
+
+        }
+        li:nth-child(1), li:nth-child(2){
+          width: 93px;
+        }
+        li:nth-child(3){
+          width: 4px;
+        }
+        li:nth-child(7), li:nth-child(5){
+          margin-right: 5px;
+        }
+
+
+
+
+        li:nth-child(9),li:nth-child(10) {
+          @include md-d {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      .book__title {
+        padding: 0px;
+        display: flex;
+        list-style: none;
+
+        li {
+          cursor: pointer;
+          user-select: none;
+          margin-right: 58px;
+          font-weight: bold;
+        }
+
+        li:nth-child(3) {
+          margin-right: 0px;
+        }
+      }
+    }
+
+    .book__block2 {
+      margin-left: 50px;
+
+      @include md-d {
+        margin-left: 0px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

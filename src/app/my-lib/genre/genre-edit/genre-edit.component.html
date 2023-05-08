@@ -1,0 +1,13 @@
+<div class="myLable">
+  <h2>Редактирование жанра</h2>
+</div>
+<form [formGroup]="editGenreForm" *ngIf="editGenreForm">
+  <mat-form-field class="example-full-width" color="accent">
+    <mat-label>Название жанра</mat-label>
+    <input matInput placeholder="Название жанра" value="" #name formControlName="name">
+  </mat-form-field>
+
+  <button *ngIf="editGenreForm.valid" mat-raised-button color="accent"
+    (click)="editBook(name.value)">Изменить</button>
+  <button *ngIf="editGenreForm.invalid" mat-raised-button color="warn">Изменить</button>
+</form>

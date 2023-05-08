@@ -1,0 +1,40 @@
+<section class="book">
+  <div class="book__blocks">
+    <div class="book__block1">
+      <div class="block1__submenu">
+      <button (click)="windowAdd()" mat-flat-button color="accent" class="book__new">Добавить новую книгу</button>
+      <div class="block1__submenu__serch">
+        <input [(ngModel)]="activeSearch" #myInput   type="text" placeholder="Поиск книги">
+        <app-serch (linkSearch)="goToLink($event)"*ngIf="activeSearch"></app-serch>
+      </div>
+    </div>
+
+
+      <ul class="book__title" >
+        <li>Название</li>
+        <li>Жанр</li>
+        <li>Количество стр.</li>
+      </ul>
+
+      <ul class="book__body" *ngFor="let key of AllBook">
+        <li>{{key.id}}. {{key.name}}</li>
+        <li>{{key.genre}}</li>
+        <li>{{key.countPages}}</li>
+        <li class="book_B" (click)="bookEdit(key)">Редактировать✏️</li>
+        <li class="book_L" (click)="bookEdit(key)">✏️</li>
+        <li class="book_B" (click)="bookdelete(key.id)">Удалить🗑️</li>
+        <li class="book_L" (click)="bookdelete(key.id)">🗑️</li>
+        <li class="book_B" (click)="bookDetails(key)">Детали📋</li>
+        <li class="book_L" (click)="bookDetails(key)">📋</li>
+      </ul>
+
+    </div>
+    <div class="book__block2">
+      <app-add-book (updBook)="myUpdateBook($event)" *ngIf="addBook"></app-add-book>
+      <app-book-details  *ngIf="infoUser"></app-book-details>
+      <app-edit-book (updBook)="myUpdateBook($event)" *ngIf="editUser"></app-edit-book>
+    </div>
+  </div>
+</section>
+
+

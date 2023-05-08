@@ -1,0 +1,7 @@
+<div class="serch">
+  {{wait}}
+  <ul *ngFor="let key of serhArray">
+    <li (mouseup)="goToLink(key)">{{key.name}}</li>
+  </ul>
+
+</div>

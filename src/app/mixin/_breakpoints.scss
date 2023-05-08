@@ -1,0 +1,53 @@
+
+@mixin xl-d {
+  @media (max-width: (map-get($breakpoitns, xl) - .2px)){
+      @content;
+  }
+}
+@mixin xm-d{
+  @media (max-width: (map-get($breakpoitns, xm) - .2px)){
+      @content;
+  }
+}
+@mixin sl-d{
+  @media (max-width: (map-get($breakpoitns, sl) - .2px)){
+      @content;
+  }
+}
+@mixin sr-d{
+  @media (max-width: (map-get($breakpoitns, sr) - .2px)){
+      @content;
+  }
+}
+
+@mixin lg-d{
+  @media (max-width: (map-get($breakpoitns, lg) - .2px)){
+      @content;
+  }
+}
+@mixin gg-d{
+  @media (max-width: (map-get($breakpoitns, gg) - .2px)){
+      @content;
+  }
+}
+
+@mixin md-d{
+  @media (max-width: (map-get($breakpoitns, md) - .2px)){
+      @content;
+  }
+}
+@mixin sm-d{
+  @media (max-width: (map-get($breakpoitns, sm) - .2px)){
+      @content;
+  }
+}
+@mixin mx-d{
+  @media (max-width: (map-get($breakpoitns, mx) - .2px)){
+      @content;
+  }
+}
+@mixin mm-d{
+  @media (max-width: (map-get($breakpoitns, mm) - .2px)){
+      @content;
+  }
+}
