@@ -20,3 +20,20 @@
   <input matInput placeholder="Дата рождения" value="{{authorDetails.dateBirth}}" readonly>
 </mat-form-field>
 </section>
+
+<section class="Auhorbooks">
+  <div class="myLable">
+    <h2>Список книг автора</h2>
+  </div>
+  <div class="book" *ngFor="let book of authorBooks">
+
+    <div class="book__block" >
+      <div class="book__info"><span>Название: </span> {{book.name}}</div>
+      <div class="book__info"><span>Жанр: </span> {{book.genre}}</div>
+      <div class="book__info"><span>Количество страниц: </span> {{book.countPages}}</div>
+    </div>
+    <div class="book__block">
+
+    </div>
+  </div>
+</section>

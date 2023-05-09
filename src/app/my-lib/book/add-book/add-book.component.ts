@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/interface/author';
 import { Book } from 'src/app/interface/book';
 import { Genre } from 'src/app/interface/genre';
@@ -12,7 +12,7 @@ import { GanreService } from 'src/app/service/ganre.service';
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.scss']
 })
-export class AddBookComponent {
+export class AddBookComponent implements OnInit {
 
   constructor(private genreService:GanreService, private bookService:BookService, private authorService:AuthorService){}
 
@@ -45,8 +45,9 @@ export class AddBookComponent {
 
   loadForm(){
     this.addBook= new FormGroup({
-      // email: new FormControl("", [Validators.required, Validators.email]),
-      // pass: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      name: new FormControl("", [Validators.required]),
+      countpage:new FormControl("", [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+      genre: new FormControl("", [Validators.required]),
     })
   }
   @Output()

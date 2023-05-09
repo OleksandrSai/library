@@ -4,14 +4,21 @@
   height: 150px;
   background-color: rgb(66, 61, 60);
   border-radius: 0 0  5px 5px;
-}
-ul{
-  display: flex;
-  flex-direction: column;
-  color: white;
-  list-style: none;
-  li{
-    cursor: pointer;
-    user-select: none;
+  .serch__status{
+    text-align: center;
+    color: wheat;
   }
+
+  ul{
+    display: flex;
+    flex-direction: column !important;
+    color: white;
+    list-style: none;
+    li{
+
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
 }

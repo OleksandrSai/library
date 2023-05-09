@@ -4,19 +4,20 @@
 
 <form [formGroup]="addBook" *ngIf="addBook">
   <mat-form-field class="example-full-width" color="accent">
-    <mat-label>Название</mat-label>
-    <input matInput placeholder="Название" value="" #name>
+    <mat-label>Название книги</mat-label>
+    <input matInput placeholder="Название книги" value="" #name formControlName="name">
   </mat-form-field>
   <mat-form-field class="example-full-width" color="accent">
     <mat-label>Количество страниц</mat-label>
-    <input matInput placeformholder="Фамилия" value="" #countPage>
+    <input matInput placeformholder="Количество страниц" value="" #countPage formControlName="countpage">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Выбор жанра</mat-label>
-    <mat-select [(value)]="selected">
+    <mat-select [(value)]="selected" formControlName="genre">
       <mat-option *ngFor="let key of genre" value="{{key.id}}">{{key.genre}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <button class="addBookButton" mat-raised-button color="accent" (click)="addNewBook(name.value, countPage.value)">Добавить новую книгу</button>
+  <button class="addBookButton" *ngIf="addBook.valid" mat-raised-button color="accent" (click)="addNewBook(name.value, countPage.value)">Добавить новую книгу</button>
+  <button class="addBookButton" *ngIf="addBook.invalid" mat-raised-button color="warn">Добавить новую книгу</button>
 
 </form>

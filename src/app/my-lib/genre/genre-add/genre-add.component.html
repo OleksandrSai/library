@@ -5,9 +5,11 @@
 <form [formGroup]="addBook" *ngIf="addBook">
   <mat-form-field class="example-full-width" color="accent">
     <mat-label>Название жанра</mat-label>
-    <input matInput placeholder="Название" value="" #name>
+    <input matInput placeholder="Название" value="" #name formControlName="name">
   </mat-form-field>
 
-  <button class="addBookButton" mat-raised-button color="accent" (click)="addNewGenre(name.value)">Добавить жанр</button>
+
+   <button *ngIf="addBook.valid" class="addBookButton" mat-raised-button color="accent" (click)="addNewGenre(name.value)">Добавить жанр</button>
+   <button  *ngIf="addBook.invalid" class="addBookButton" mat-raised-button color="warn">Добавить жанр</button>
 
 </form>

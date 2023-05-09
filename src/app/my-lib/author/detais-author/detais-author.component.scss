@@ -3,3 +3,43 @@
   flex-direction: column;
   width: 360px;
 }
+.Auhorbooks{
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+
+
+  .book{
+    margin-top: 20px;
+    width: 360px;
+    height: 60px;
+    background-color: rgb(66, 61, 60);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+
+
+    .book__block{
+      display: flex;
+      flex-direction: column;
+      .book__info{
+        color:white;
+        span{
+          color:rgba(245, 245, 245, 0.712)
+        }
+      }
+
+      .bookButton{
+
+        width: 15px;
+        height: 30px;
+      }
+    }
+    .book__block:nth-child(1){
+      width: 300px;
+      padding-left: 5px;
+    }
+
+
+  }
+}

@@ -2,7 +2,7 @@
   <div class="book__blocks">
     <div class="book__block1">
       <div class="block1__submenu">
-      <button (click)="windowAdd()" mat-flat-button color="accent" class="book__new">Добавить новую книгу</button>
+      <button (click)="windowAdd()" mat-flat-button color="accent" class="book__new">Добавить книгу</button>
       <div class="block1__submenu__serch">
         <input [(ngModel)]="activeSearch" #myInput   type="text" placeholder="Поиск книги">
         <app-serch (linkSearch)="goToLink($event)"*ngIf="activeSearch"></app-serch>

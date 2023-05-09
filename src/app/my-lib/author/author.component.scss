@@ -18,6 +18,12 @@
 
     .author__block1 {
       font-size: 16px;
+      .author__submenu{
+        display: flex;
+        .author__submenu__button{
+          margin-right: 45px;
+        }
+      }
 
       .author__body {
         padding: 0px;

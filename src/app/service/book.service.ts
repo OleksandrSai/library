@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { concatMap, debounceTime, filter, map, Observable, reduce, switchMap, take, toArray } from 'rxjs';
 import { Book, CollectionBooks } from '../interface/book';
 import { Genre } from '../interface/genre';
-import { AuthorService } from './author.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  constructor(private http: HttpClient, private authorService: AuthorService) {}
+  constructor(private http: HttpClient) {}
 
   waitBookEdit:CollectionBooks= ({} as CollectionBooks);
   editFlag:boolean = false;
@@ -35,10 +34,7 @@ export class BookService {
               name:book.name,
               countPages:book.countPages,
               genre: genre.genre}}),
-              )
-      }),
-
-    )
+              )}),)
   }
 
   getAllBooks():Observable<CollectionBooks[]>{

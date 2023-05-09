@@ -46,9 +46,8 @@ editBook(name:string, countPages:string){
   loadForm(){
     this.editAuthorForm= new FormGroup({
       name: new FormControl(`${this.bookDetails.name}`, [Validators.required]),
-      countPage: new FormControl(`${this.bookDetails.countPages}`, [Validators.required]),
-
-      // pass: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      countpage: new FormControl(`${this.bookDetails.countPages}`, [Validators.required, Validators.pattern("[0-9]{1,5}")]),
+      genre:new FormControl(`${this.selected}`),
     })
   }
 

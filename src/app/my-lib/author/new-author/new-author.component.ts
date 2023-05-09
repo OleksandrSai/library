@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthorComponent } from 'src/app/my-lib/author/author.component';
+
 import { AuthorService } from 'src/app/service/author.service';
-import { AddNewBookComponent } from '../edit-author/add-new-book/add-new-book.component';
 
 @Component({
   selector: 'app-new-author',
@@ -20,30 +19,22 @@ export class NewAuthorComponent {
     this.loadForm()
   }
 
-ngDoCheck(){
-
-}
-
-@Output()
-myUpd: EventEmitter<string> = new EventEmitter
-
-
-
 
   loadForm(){
     this.addUserForm= new FormGroup({
-      // email: new FormControl("", [Validators.required, Validators.email]),
-      // pass: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      name: new FormControl("", [Validators.required, Validators.pattern("[a-zA-Zа-яёА-ЯЁ]{3,10}")]),
+      lastname: new FormControl("", [Validators.required, Validators.pattern("[a-zA-Zа-яёА-ЯЁ]{3,10}")]),
+      surname: new FormControl(""),
+      dateBirth: new FormControl("", [Validators.required, Validators.pattern("^[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{4}")]),
     })
   }
 
   Submit(fisrtName:string, lastName:string, surname:string, dateBirth:string){
-
     this.authorService.addNewAuthor(fisrtName,lastName,surname,dateBirth).subscribe(el=> this.myUpd.emit("автор добавлен"))
-
-
   }
 
+  @Output()
+  myUpd: EventEmitter<string> = new EventEmitter
 
 
 

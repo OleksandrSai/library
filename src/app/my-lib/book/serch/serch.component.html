@@ -1,5 +1,5 @@
 <div class="serch">
-  {{wait}}
+  <div class="serch__status">{{wait}}</div>
   <ul *ngFor="let key of serhArray">
     <li (mouseup)="goToLink(key)">{{key.name}}</li>
   </ul>

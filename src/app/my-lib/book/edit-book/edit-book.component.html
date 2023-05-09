@@ -8,11 +8,11 @@
   </mat-form-field>
   <mat-form-field class="example-full-width" color="accent">
     <mat-label>Количество страниц</mat-label>
-    <input matInput placeformholder="Количество страниц" value="" formControlName="countPage" #CountPage>
+    <input matInput placeformholder="Количество страниц" value="" formControlName="countpage" #CountPage>
   </mat-form-field>
   <mat-form-field appearance="fill" #superOptions2>
     <mat-label>Выбор жанра</mat-label>
-    <mat-select #superOptions3 [(value)]="selected">
+    <mat-select #superOptions3 [(value)]="selected" formControlName="genre">
       <mat-option  #superpuper *ngFor="let key of genre" value="{{key.id}}" sele >{{key.genre}}</mat-option>
     </mat-select>
   </mat-form-field>

@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Author, AuthorBooks } from 'src/app/interface/author';
+import { Author} from 'src/app/interface/author';
 import { CollectionBooks } from 'src/app/interface/book';
 import { AuthorService } from 'src/app/service/author.service';
 import { BookService } from 'src/app/service/book.service';
-import { BookComponent } from '../../book/book.component';
 import { AddNewBookComponent } from './add-new-book/add-new-book.component';
 
 @Component({
@@ -44,11 +43,11 @@ export class EditAuthorComponent {
 //Создаем реактивную форму
   loadForm(){
     this.editAuthorForm= new FormGroup({
-      fisrtName: new FormControl(`${this.authorDetails.fisrtName}`, [Validators.required]),
-      lastName: new FormControl(`${this.authorDetails.lastName}`, [Validators.required]),
-      surname: new FormControl(`${this.authorDetails.surname}`, [Validators.required]),
-      dateBirth: new FormControl(`${this.authorDetails.dateBirth}`, [Validators.required]),
-      // pass: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      fisrtName: new FormControl(`${this.authorDetails.fisrtName}`, [Validators.required, Validators.pattern("[a-zA-Zа-яёА-ЯЁ]{3,10}")] ),
+      lastName: new FormControl(`${this.authorDetails.lastName}`, [Validators.required, Validators.pattern("[a-zA-Zа-яёА-ЯЁ]{3,10}")] ),
+      surname: new FormControl(`${this.authorDetails.surname}`, []),
+      dateBirth: new FormControl(`${this.authorDetails.dateBirth}`, [Validators.pattern("^[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{4}"), Validators.required]),
+
     })
   }
 

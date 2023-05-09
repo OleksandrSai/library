@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/interface/author';
-import { Book } from 'src/app/interface/book';
 import { Genre } from 'src/app/interface/genre';
-import { AuthorService } from 'src/app/service/author.service';
-import { BookService } from 'src/app/service/book.service';
 import { GanreService } from 'src/app/service/ganre.service';
 
 @Component({
@@ -14,7 +11,7 @@ import { GanreService } from 'src/app/service/ganre.service';
 })
 export class GenreAddComponent {
 
-  constructor(private genreService:GanreService, private bookService:BookService, private authorService:AuthorService){}
+  constructor(private genreService:GanreService){}
 
   ngOnInit(){
     this.loadForm()
@@ -43,8 +40,7 @@ export class GenreAddComponent {
 
   loadForm(){
     this.addBook= new FormGroup({
-      // email: new FormControl("", [Validators.required, Validators.email]),
-      // pass: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      name: new FormControl("", [Validators.required]),
     })
   }
   @Output()

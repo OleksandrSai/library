@@ -11,7 +11,7 @@ import {
   toArray,
 } from 'rxjs';
 import { Author } from '../interface/author';
-import { Book } from '../interface/book';
+import { Book, CollectionBooks } from '../interface/book';
 
 @Injectable({
   providedIn: 'root',
@@ -72,7 +72,7 @@ export class AuthorService {
     return this.http.put<Author>(`api/author/${author.id}`, author).pipe(take(1));
   }
 
-  searchingForInformationBooks(id: number) {
+  searchingForInformationBooks(id: number):Observable<CollectionBooks> {
     return this.getAuthorBook(id).pipe(
       map((x: any) => x.listBook),
       switchMap((x: any) => x),
@@ -99,7 +99,7 @@ export class AuthorService {
     );
   }
 
-  getAutorBooks(id:number) {
+  getAutorBooks(id:number):Observable<CollectionBooks[]>  {
     return this.searchingForInformationBooks(id).pipe(
       reduce((x: any, y: any) => [...x, y], []),
       take(1)

@@ -1,9 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Book, CollectionBooks } from 'src/app/interface/book';
 import { Genre } from 'src/app/interface/genre';
-import { AuthorService } from 'src/app/service/author.service';
-import { BookService } from 'src/app/service/book.service';
 import { GanreService } from 'src/app/service/ganre.service';
 
 @Component({
@@ -13,7 +10,7 @@ import { GanreService } from 'src/app/service/ganre.service';
 })
 export class GenreEditComponent {
 
-  constructor(private authorService:AuthorService, private bookService:BookService, private genreService:GanreService){
+  constructor(private genreService:GanreService){
   }
 
 

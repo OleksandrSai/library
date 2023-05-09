@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book, CollectionBooks } from 'src/app/interface/book';
 import { BookService } from 'src/app/service/book.service';
@@ -8,7 +8,7 @@ import { BookService } from 'src/app/service/book.service';
   templateUrl: './serch.component.html',
   styleUrls: ['./serch.component.scss']
 })
-export class SerchComponent {
+export class SerchComponent implements OnInit, DoCheck{
 
   constructor(private bookService:BookService){}
 
@@ -25,8 +25,11 @@ export class SerchComponent {
 
   ngOnInit(){
     if(!this.serhArray.length)  this.wait = "Search.."
-    setTimeout((()=>{ if(this.wait && !this.serhArray.length) this.wait = "no no result"; else this.wait = undefined}),3000)
+
     this.takeSerchInput()
+  }
+  ngDoCheck(){
+    setTimeout((()=>{ if(this.wait && !this.serhArray.length) this.wait = "No result.."; else this.wait = undefined}),3000)
   }
 
 

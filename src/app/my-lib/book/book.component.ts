@@ -4,7 +4,6 @@ import { Author } from 'src/app/interface/author';
 import { Book, CollectionBooks } from 'src/app/interface/book';
 import { AuthorService } from 'src/app/service/author.service';
 import { BookService } from 'src/app/service/book.service';
-import { EditAuthorComponent } from '../author/edit-author/edit-author.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { SerchComponent } from './serch/serch.component';
@@ -26,7 +25,7 @@ editUser:boolean = false;
 editBook:CollectionBooks = ({}  as CollectionBooks)
 inputSerch:Observable<HTMLInputElement> = ({} as Observable<HTMLInputElement>)
 
-activeSearch:string = ''
+activeSearch:string = '';
 
 windowAdd(){
   this.addBook = true;
